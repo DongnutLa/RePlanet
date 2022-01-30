@@ -355,6 +355,5 @@ public class Login extends javax.swing.JFrame {
 
     public static Login Login = new Login();
     public static Menu Menu = new Menu();
-
 }
 
