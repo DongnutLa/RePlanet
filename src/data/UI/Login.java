@@ -4,12 +4,19 @@
  */
 package data.UI;
 
+import data.CollectionSchedule;
 import data.User;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 public class Login extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    public static User currentUser;
     
     public Login() {
         initComponents();
@@ -21,6 +28,28 @@ public class Login extends javax.swing.JFrame {
         String pwd = String.valueOf(formPassword.getPassword());
         user.setUsername(formUser.getText());
         user.setPassword(pwd);
+        
+        return user;
+    }
+    
+    public User CurrentUser() {
+        User user = RecoveryDataGUI();
+        ResultSet result = user.currentUser();
+        
+        try {
+            if (result.next()) {
+                int id = Integer.parseInt(result.getString("id"));
+                String name = result.getString("name");
+                String mail = result.getString("mail");
+                user.setId(id);
+                user.setName(name);
+                user.setMail(mail);
+                
+                currentUser = user;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
         
         return user;
     }
@@ -217,7 +246,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,12 +319,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_formPasswordMousePressed
 
     private void txtEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntrarMouseClicked
-        User user = RecoveryDataGUI();
-        boolean log = user.login();
-        if (log) {
-            JOptionPane.showMessageDialog(null, "Gracias por iniciar sesión, "+user.getUsername()+"!");
-            Login.setVisible(false);
-            Menu.setVisible(true);
+        User user = CurrentUser();
+        ResultSet result = user.login();
+            
+        try {
+            if (result.next()) {
+                JOptionPane.showMessageDialog(null, "Gracias por iniciar sesión, "+user.getUsername()+"!");
+                Login.setVisible(false);
+                Menu.setVisible(true);
+                Menu.setUserName(currentUser);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "¡Usuario o clave incorrectos!", "Error", ERROR_MESSAGE);
+            System.out.println(e);
         }
     }//GEN-LAST:event_txtEntrarMouseClicked
 

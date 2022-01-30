@@ -70,18 +70,32 @@ public class User {
     }
     
     
-    public boolean login(){
+    public ResultSet login(){
         try {
             ConnectionDb conn = new ConnectionDb();
             String query = String.format("SELECT * FROM users WHERE username = '%s' and password = '%s' LIMIT 1;",
                     this.username, this.password);
             ResultSet response = conn.queryRegister(query);
 
-            return response.next();
+            return response;
         } catch (Exception e) {
             System.out.println(e);
+            return null;
         }
-        return false;
+    }
+    
+    public ResultSet currentUser() {
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String query = String.format("SELECT * FROM users WHERE username = '%s' LIMIT 1;",
+                    this.username);
+            ResultSet response = conn.queryRegister(query);
+
+            return response;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
     }
     
 }

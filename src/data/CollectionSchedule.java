@@ -1,6 +1,8 @@
 package data;
 
+import data.database.ConnectionDb;
 import java.util.*;
+import java.sql.ResultSet;
 
 public class CollectionSchedule {
     public int id;
@@ -74,7 +76,34 @@ public class CollectionSchedule {
 
     public void setPayment(String payment) {
         this.payment = payment;
+    }   
+    
+    public boolean setSchedule() {
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String querySQL = String.format("INSERT INTO schedule (userId, city, address, homeType, comments, payment, clothes, "
+                    + "electronics, toys, instruments, books, furnis, tools) "
+                    + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d');",
+                    this.userId, this.city, this.address, this.homeType, this.comments, this.payment, this.quantity.get(0), 
+                    this.quantity.get(1), this.quantity.get(2), this.quantity.get(3), this.quantity.get(4), this.quantity.get(5), 
+                    this.quantity.get(6));
+            conn.executeSQL(querySQL);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
     }
     
-    
+    public ResultSet getData() {
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String querySQL = "SELECT * FROM schedule;";
+            ResultSet response = conn.queryRegister(querySQL);
+            return response;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 }

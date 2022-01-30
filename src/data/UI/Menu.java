@@ -1,11 +1,23 @@
 package data.UI;
 
+import data.User;
+import java.awt.BorderLayout;
+
 public class Menu extends javax.swing.JFrame {
 
     int xMouse, yMouse;
     
     public Menu() {
         initComponents();
+        
+        Principal principal = new Principal();
+        principal.setSize(680, 500);
+        principal.setLocation(0, 0);
+        
+        content.removeAll();
+        content.add(principal, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -30,8 +42,11 @@ public class Menu extends javax.swing.JFrame {
         SeparatorRePlanet = new javax.swing.JSeparator();
         RePlanet = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        userName = new javax.swing.JLabel();
+        SeparatorRePlanet1 = new javax.swing.JSeparator();
         TitlePanel = new javax.swing.JPanel();
         txtTitle = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -112,6 +127,9 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtScheduleMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtScheduleMousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout scheduleMenuLayout = new javax.swing.GroupLayout(scheduleMenu);
@@ -139,6 +157,11 @@ public class Menu extends javax.swing.JFrame {
         txtScheduleList.setText("Lista de citas");
         txtScheduleList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtScheduleList.setIconTextGap(16);
+        txtScheduleList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtScheduleListMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout ScheduleListMenuLayout = new javax.swing.GroupLayout(ScheduleListMenu);
         ScheduleListMenu.setLayout(ScheduleListMenuLayout);
@@ -223,7 +246,7 @@ public class Menu extends javax.swing.JFrame {
 
         SeparatorRePlanet.setBackground(new java.awt.Color(181, 245, 82));
         SeparatorRePlanet.setForeground(new java.awt.Color(51, 51, 51));
-        MenuBar.add(SeparatorRePlanet, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 200, -1));
+        MenuBar.add(SeparatorRePlanet, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 180, 10));
 
         RePlanet.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         RePlanet.setForeground(new java.awt.Color(51, 51, 51));
@@ -239,6 +262,15 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.setIconTextGap(16);
         MenuBar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 210, 40));
+
+        userName.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        userName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userName.setText("User");
+        MenuBar.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 200, -1));
+
+        SeparatorRePlanet1.setBackground(new java.awt.Color(181, 245, 82));
+        SeparatorRePlanet1.setForeground(new java.awt.Color(51, 51, 51));
+        MenuBar.add(SeparatorRePlanet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 200, 10));
 
         jPanel1.add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 600));
 
@@ -267,6 +299,19 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jPanel1.add(TitlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 680, 60));
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 680, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -306,9 +351,32 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_TopPanelMousePressed
 
     private void txtScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtScheduleMouseClicked
-        Menu.setVisible(false);
-        Schedule.setVisible(true);
+        
     }//GEN-LAST:event_txtScheduleMouseClicked
+
+    private void txtScheduleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtScheduleMousePressed
+        Schedule schedule = new Schedule();
+        schedule.setSize(680, 500);
+        schedule.setLocation(0, 0);
+        
+        content.removeAll();
+        content.add(schedule, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+        txtTitle.setText("Agendar Cita");
+    }//GEN-LAST:event_txtScheduleMousePressed
+
+    private void txtScheduleListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtScheduleListMouseClicked
+        ScheduleList scheduleList = new ScheduleList();
+        scheduleList.setSize(680, 500);
+        scheduleList.setLocation(0, 0);
+        
+        content.removeAll();
+        content.add(scheduleList, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+        txtTitle.setText("Lista de citas");
+    }//GEN-LAST:event_txtScheduleListMouseClicked
 
     /**
      * @param args the command line arguments
@@ -340,7 +408,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Menu.setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }
@@ -353,9 +421,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel RePlanet;
     private javax.swing.JPanel ScheduleListMenu;
     private javax.swing.JSeparator SeparatorRePlanet;
+    private javax.swing.JSeparator SeparatorRePlanet1;
     private javax.swing.JPanel TitlePanel;
     private javax.swing.JPanel TopPanel;
     private javax.swing.JPanel UserListMenu;
+    private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel scheduleMenu;
@@ -366,9 +436,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel txtSlogan;
     private javax.swing.JLabel txtTitle;
     private javax.swing.JLabel txtUserList;
+    private javax.swing.JLabel userName;
     // End of variables declaration//GEN-END:variables
-
-    public static Menu Menu = new Menu();
-    public static Schedule Schedule = new Schedule();
-
+    public void setUserName(User user){
+        this.userName.setText(user.username);
+    }
 }
