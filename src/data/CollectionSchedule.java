@@ -3,6 +3,7 @@ package data;
 import data.database.ConnectionDb;
 import java.util.*;
 import java.sql.ResultSet;
+import java.sql.Date;
 
 public class CollectionSchedule {
     public int id;
@@ -13,6 +14,7 @@ public class CollectionSchedule {
     List<Integer> quantity = new ArrayList<Integer>();  
     public String comments;
     public String payment;
+    public Date date;
 
     public int getId() {
         return id;
@@ -77,16 +79,24 @@ public class CollectionSchedule {
     public void setPayment(String payment) {
         this.payment = payment;
     }   
-    
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+       
     public boolean setSchedule() {
         try {
             ConnectionDb conn = new ConnectionDb();
             String querySQL = String.format("INSERT INTO schedule (userId, city, address, homeType, comments, payment, clothes, "
-                    + "electronics, toys, instruments, books, furnis, tools) "
-                    + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d');",
+                    + "electronics, toys, instruments, books, furnis, tools, date) "
+                    + "VALUES ('%d', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%s');",
                     this.userId, this.city, this.address, this.homeType, this.comments, this.payment, this.quantity.get(0), 
                     this.quantity.get(1), this.quantity.get(2), this.quantity.get(3), this.quantity.get(4), this.quantity.get(5), 
-                    this.quantity.get(6));
+                    this.quantity.get(6), this.date);
             conn.executeSQL(querySQL);
             return true;
         } catch (Exception e) {

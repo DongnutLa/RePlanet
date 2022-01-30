@@ -213,6 +213,11 @@ public class Menu extends javax.swing.JFrame {
         txtUserList.setText("Usuarios");
         txtUserList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtUserList.setIconTextGap(16);
+        txtUserList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtUserListMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout UserListMenuLayout = new javax.swing.GroupLayout(UserListMenu);
         UserListMenu.setLayout(UserListMenuLayout);
@@ -377,6 +382,18 @@ public class Menu extends javax.swing.JFrame {
         content.repaint();
         txtTitle.setText("Lista de citas");
     }//GEN-LAST:event_txtScheduleListMouseClicked
+
+    private void txtUserListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserListMouseClicked
+        Users users = new Users();
+        users.setSize(680, 500);
+        users.setLocation(0, 0);
+        
+        content.removeAll();
+        content.add(users, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+        txtTitle.setText("Lista de usuarios");
+    }//GEN-LAST:event_txtUserListMouseClicked
 
     /**
      * @param args the command line arguments

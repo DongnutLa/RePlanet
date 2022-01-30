@@ -2,7 +2,7 @@ package data;
 
 import data.database.ConnectionDb;
 import java.sql.ResultSet;
-import java.util.Date;
+import java.sql.Date;
 
 public class User {
     public int id;
@@ -69,6 +69,32 @@ public class User {
         this.score = score;
     }
     
+    public ResultSet getById() {
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String query = String.format("SELECT * FROM users WHERE id = '%d' LIMIT 1;",
+                    this.id);
+            ResultSet response = conn.queryRegister(query);
+
+            return response;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    
+    public ResultSet getAll() {
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String query = String.format("SELECT * FROM users;");
+            ResultSet response = conn.queryRegister(query);
+
+            return response;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
     
     public ResultSet login(){
         try {
@@ -95,6 +121,48 @@ public class User {
         } catch (Exception e) {
             System.out.println(e);
             return null;
+        }
+    }
+    
+    public boolean CreateUser() {
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String query = String.format("INSERT INTO users (name, mail, username, password, birthday)"
+                    + " VALUES ('%s', '%s', '%s', '%s', '%s');",
+                    this.name, this.mail, this.username, this.password, this.birthday);
+            conn.executeSQL(query);
+
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    
+    public boolean UpdateUser() {
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String query = String.format("UPDATE users SET name='%s', mail='%s', username='%s', birthday='%s' WHERE id=%d;",
+                    this.name, this.mail, this.username, this.birthday, this.id);
+            conn.executeSQL(query);
+
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    
+    public boolean DeleteUser(){
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String query = String.format("DELETE FROM users WHERE id=%d;", this.id);
+            conn.executeSQL(query);
+
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
         }
     }
     

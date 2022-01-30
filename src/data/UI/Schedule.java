@@ -3,6 +3,7 @@ package data.UI;
 import data.CollectionSchedule;
 import data.User;
 import java.util.*;
+import java.sql.Date;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
@@ -22,6 +23,7 @@ public class Schedule extends javax.swing.JPanel {
         int books = Integer.parseInt(booksForm.getText());
         int furnis = Integer.parseInt(furnisForm.getText());
         int tools = Integer.parseInt(toolsForm.getText());
+        Date date = Date.valueOf(dateForm.getText());
         
         List<Integer> quantity = new ArrayList<Integer>();
         quantity.addAll(Arrays.asList(clothes, electronics, toys, instruments, books, furnis, tools));
@@ -35,6 +37,7 @@ public class Schedule extends javax.swing.JPanel {
         schedule.setComments(commentsForm.getText());
         schedule.setQuantity(quantity);
         schedule.setUserId(currentUser.id);
+        schedule.setDate(date);
         
         boolean res = schedule.setSchedule();
         return res;
@@ -67,7 +70,7 @@ public class Schedule extends javax.swing.JPanel {
         jSeparator9 = new javax.swing.JSeparator();
         toolsForm = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
-        CommentsLabel = new javax.swing.JLabel();
+        DateLabel = new javax.swing.JLabel();
         InstrumentsLabel = new javax.swing.JLabel();
         ToolsLabel = new javax.swing.JLabel();
         ToysLabel = new javax.swing.JLabel();
@@ -87,6 +90,9 @@ public class Schedule extends javax.swing.JPanel {
         quantityLabel1 = new javax.swing.JLabel();
         MessagePanel = new javax.swing.JPanel();
         TxtMessage = new javax.swing.JLabel();
+        dateForm = new javax.swing.JTextField();
+        jSeparator14 = new javax.swing.JSeparator();
+        CommentsLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setMinimumSize(new java.awt.Dimension(680, 500));
@@ -314,9 +320,9 @@ public class Schedule extends javax.swing.JPanel {
         jSeparator11.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 40, 10));
 
-        CommentsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
-        CommentsLabel.setText("Observaciones");
-        add(CommentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 120, 30));
+        DateLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        DateLabel.setText("Fecha");
+        add(DateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 120, 30));
 
         InstrumentsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         InstrumentsLabel.setText("Instrumentos");
@@ -351,12 +357,12 @@ public class Schedule extends javax.swing.JPanel {
                 commentsFormActionPerformed(evt);
             }
         });
-        add(commentsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 400, 30));
+        add(commentsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 180, 30));
 
         jSeparator10.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator10.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator10.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 400, 10));
+        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 180, 10));
 
         infoLabel.setFont(new java.awt.Font("Dongle", 1, 28)); // NOI18N
         infoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -446,6 +452,27 @@ public class Schedule extends javax.swing.JPanel {
         );
 
         add(MessagePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 660, 50));
+
+        dateForm.setBackground(new java.awt.Color(200, 200, 200));
+        dateForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        dateForm.setForeground(new java.awt.Color(51, 51, 51));
+        dateForm.setText("2022-MM-dd");
+        dateForm.setBorder(null);
+        dateForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateFormActionPerformed(evt);
+            }
+        });
+        add(dateForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 180, 30));
+
+        jSeparator14.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator14.setForeground(new java.awt.Color(181, 245, 82));
+        jSeparator14.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
+        add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 180, 10));
+
+        CommentsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        CommentsLabel.setText("Observaciones");
+        add(CommentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 120, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeTypeFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeTypeFormActionPerformed
@@ -562,12 +589,17 @@ public class Schedule extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBtnScheduleMouseClicked
 
+    private void dateFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateFormActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BooksLabel;
     private javax.swing.JPanel BtnSchedule;
     private javax.swing.JLabel ClothesLabel;
     private javax.swing.JLabel CommentsLabel;
+    private javax.swing.JLabel DateLabel;
     private javax.swing.JLabel ElectronicsLabel;
     private javax.swing.JLabel FurnisLabel;
     private javax.swing.JLabel InstrumentsLabel;
@@ -583,6 +615,7 @@ public class Schedule extends javax.swing.JPanel {
     private javax.swing.JLabel cityLabel11;
     private javax.swing.JTextField clothesForm;
     private javax.swing.JTextField commentsForm;
+    private javax.swing.JTextField dateForm;
     private javax.swing.JTextField electronicsForm;
     private javax.swing.JTextField furnisForm;
     private javax.swing.JTextField homeTypeForm;
@@ -594,6 +627,7 @@ public class Schedule extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

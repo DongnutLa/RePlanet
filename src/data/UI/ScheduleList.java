@@ -1,17 +1,18 @@
 package data.UI;
 
 import data.CollectionSchedule;
+import data.User;
 import data.database.ConnectionDb;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 
 public class ScheduleList extends javax.swing.JPanel {
     DefaultTableModel model;
-
+    
     public ScheduleList() {
         initComponents();
         
-        String[] titles = {"id", "Usuario", "Ciudad", "Dirección", "Casa", 
+        String[] titles = {"id", "Fecha", "Usuario", "Ciudad", "Dirección", "Casa", 
             "R", "E", "J", "I", "L", "M", "H", "Comentarios"};
         model = new DefaultTableModel(null,titles);
         Table.setModel(model);
@@ -64,6 +65,7 @@ public class ScheduleList extends javax.swing.JPanel {
             ResultSet rows = schedules.getData();
             while (rows.next()) {
                 String id = rows.getString("id");
+                String date = rows.getString("date");
                 String userId = rows.getString("userId");
                 String city = rows.getString("city");
                 String address = rows.getString("address");
@@ -77,9 +79,15 @@ public class ScheduleList extends javax.swing.JPanel {
                 String tools = rows.getString("tools");
                 String comments = rows.getString("comments");
                 
-                Object[] data = {id, userId, city, address, homeType, clothes, 
-                    electronics, toys, instruments, books, furnis, tools, comments};
-                model.addRow(data);
+                User user = new User();
+                user.setId(Integer.parseInt(id));
+                ResultSet userData = user.getById();
+                while(userData.next()){
+                    String userName = userData.getString("username");
+                    Object[] data = {id, date, userName, city, address, homeType, clothes, 
+                        electronics, toys, instruments, books, furnis, tools, comments};
+                    model.addRow(data);
+                }
             }
         } catch (Exception e) {
             System.out.println(e);
