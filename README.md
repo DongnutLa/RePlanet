@@ -14,6 +14,7 @@ In order to get ready:
   - username (VARCHAR(45), Not Null)
   - password (VARCHAR(45), Not Null)
   - birthday (date, Not Null)
+  - score (INT, Not Null)
 - Create a table named schedule with the following columns:
   - id (INT, Primary Key, Not Null, Auto Incremental)
   - userId (INT, Not Null)
@@ -29,6 +30,7 @@ In order to get ready:
   - books (INT, Not Null)
   - furnis (INT, Not Null)
   - tools (INT, Not Null)
+  - date (date, Not Null)
 - Be sure the database name matches with db string in ConnectionDb.java file
 - Edit the user and pass strings on ConnectionDb.java file (must match with your MySql credentials)
 - Create the first user on the database in order to login
