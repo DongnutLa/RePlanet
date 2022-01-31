@@ -2,6 +2,9 @@ package data.UI;
 
 import data.User;
 import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -187,6 +190,11 @@ public class Menu extends javax.swing.JFrame {
         txtProductList.setText("Lista de productos");
         txtProductList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtProductList.setIconTextGap(16);
+        txtProductList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtProductListMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout ProductListMenuLayout = new javax.swing.GroupLayout(ProductListMenu);
         ProductListMenu.setLayout(ProductListMenuLayout);
@@ -234,7 +242,13 @@ public class Menu extends javax.swing.JFrame {
 
         MenuBar.add(UserListMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 220, 40));
 
+        LogoutMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LogoutMenu.setOpaque(false);
+        LogoutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutMenuMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout LogoutMenuLayout = new javax.swing.GroupLayout(LogoutMenu);
         LogoutMenu.setLayout(LogoutMenuLayout);
@@ -395,6 +409,32 @@ public class Menu extends javax.swing.JFrame {
         txtTitle.setText("Lista de usuarios");
     }//GEN-LAST:event_txtUserListMouseClicked
 
+    private void txtProductListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductListMouseClicked
+        // TODO add your handling code here:
+        ProductsList prdList = new ProductsList();
+        prdList.setSize(680, 500);
+        prdList.setLocation(0, 0);
+        
+        content.removeAll();
+        content.add(prdList, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+        txtTitle.setText("Lista de productos en stock");
+    }//GEN-LAST:event_txtProductListMouseClicked
+
+    private void LogoutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMenuMouseClicked
+        // TODO add your handling code here:
+        try {
+            JOptionPane.showMessageDialog(null, "Has cerrado sesión.\n¡Vuelve pronto!");
+            Menu.setVisible(false);
+            Menu.dispose();
+            Login.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "¡Hubo un error!", "Error", ERROR_MESSAGE);
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_LogoutMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -425,7 +465,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                Menu.setVisible(true);
             }
         });
     }
@@ -458,4 +498,6 @@ public class Menu extends javax.swing.JFrame {
     public void setUserName(User user){
         this.userName.setText(user.username);
     }
+    public static Login Login = new Login();
+    public static Menu Menu = new Menu();
 }
