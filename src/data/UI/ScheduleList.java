@@ -18,7 +18,6 @@ public class ScheduleList extends javax.swing.JPanel {
         Table.setModel(model);
         
         this.showData();
-        //this.clean();
     }
 
     
@@ -80,7 +79,7 @@ public class ScheduleList extends javax.swing.JPanel {
                 String comments = rows.getString("comments");
                 
                 User user = new User();
-                user.setId(Integer.parseInt(id));
+                user.setId(Integer.parseInt(userId));
                 ResultSet userData = user.getById();
                 while(userData.next()){
                     String userName = userData.getString("username");

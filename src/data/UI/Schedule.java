@@ -720,6 +720,7 @@ public class Schedule extends javax.swing.JPanel {
         }
         currentUser.setScore(totalArticles*10);
         currentUser.UpdateScore();
+        schList.showData();
     }//GEN-LAST:event_btnScheduleActionPerformed
 
     private void clothesCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_clothesCheckStateChanged
@@ -781,5 +782,5 @@ public class Schedule extends javax.swing.JPanel {
     private javax.swing.JCheckBox toysCheck;
     private javax.swing.JTextField toysForm;
     // End of variables declaration//GEN-END:variables
-       
+       ScheduleList schList = new ScheduleList();
     }
