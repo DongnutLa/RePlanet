@@ -10,12 +10,30 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 public class Schedule extends javax.swing.JPanel {
 
     User currentUser = Login.currentUser;
+    public static int totalArticles;
 
     public Schedule() {
         initComponents();
     }
 
     public boolean sendData(){
+        // RECYCLABLE
+        boolean clothesChk = clothesCheck.isSelected();
+        boolean electronicsChk = electronicsCheck.isSelected();
+        boolean toysChk = toysCheck.isSelected();
+        boolean instrumentsChk = instrumentsCheck.isSelected();
+        boolean booksChk = booksCheck.isSelected();
+        boolean furnisChk = furnisCheck.isSelected();
+        boolean toolsChk = toolsCheck.isSelected();
+        
+        if (clothesChk || electronicsChk || toysChk || instrumentsChk
+                || booksChk || furnisChk || toolsChk) {
+            JOptionPane.showMessageDialog(null, "Seleccionaste uno o más artículos que"
+                    + " pueden ser aprovechados.\nEstos artículos serán donados a"
+                    + " comunidades vulnerables en el Chocó.");
+        }
+        
+        // DATA
         int clothes = Integer.parseInt(clothesForm.getText());
         int electronics = Integer.parseInt(electronicsForm.getText());
         int toys = Integer.parseInt(toysForm.getText());
@@ -23,6 +41,8 @@ public class Schedule extends javax.swing.JPanel {
         int books = Integer.parseInt(booksForm.getText());
         int furnis = Integer.parseInt(furnisForm.getText());
         int tools = Integer.parseInt(toolsForm.getText());
+        totalArticles = clothes + electronics + toys + instruments
+                + books + furnis + tools;
         Date date = Date.valueOf(dateForm.getText());
         
         List<Integer> quantity = new ArrayList<Integer>();
@@ -83,8 +103,6 @@ public class Schedule extends javax.swing.JPanel {
         PayLabel = new javax.swing.JLabel();
         payForm = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
-        BtnSchedule = new javax.swing.JPanel();
-        txtBtnSchedule = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
         cityLabel11 = new javax.swing.JLabel();
         quantityLabel1 = new javax.swing.JLabel();
@@ -93,6 +111,15 @@ public class Schedule extends javax.swing.JPanel {
         dateForm = new javax.swing.JTextField();
         jSeparator14 = new javax.swing.JSeparator();
         CommentsLabel = new javax.swing.JLabel();
+        toolsCheck = new javax.swing.JCheckBox();
+        clothesCheck = new javax.swing.JCheckBox();
+        electronicsCheck = new javax.swing.JCheckBox();
+        toysCheck = new javax.swing.JCheckBox();
+        instrumentsCheck = new javax.swing.JCheckBox();
+        booksCheck = new javax.swing.JCheckBox();
+        furnisCheck = new javax.swing.JCheckBox();
+        recycleIcon = new javax.swing.JLabel();
+        btnSchedule = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setMinimumSize(new java.awt.Dimension(680, 500));
@@ -108,7 +135,7 @@ public class Schedule extends javax.swing.JPanel {
                 homeTypeFormActionPerformed(evt);
             }
         });
-        add(homeTypeForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 180, 30));
+        add(homeTypeForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 180, 30));
 
         clothesForm.setBackground(new java.awt.Color(200, 200, 200));
         clothesForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -126,7 +153,7 @@ public class Schedule extends javax.swing.JPanel {
                 clothesFormKeyTyped(evt);
             }
         });
-        add(clothesForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 40, 30));
+        add(clothesForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 40, 30));
 
         addressForm.setBackground(new java.awt.Color(200, 200, 200));
         addressForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -137,34 +164,34 @@ public class Schedule extends javax.swing.JPanel {
                 addressFormActionPerformed(evt);
             }
         });
-        add(addressForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 180, 30));
+        add(addressForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 180, 30));
 
         homeTypeLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         homeTypeLabel.setText("Tipo de casa");
-        add(homeTypeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 120, 30));
+        add(homeTypeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 120, 30));
 
         ElectronicsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         ElectronicsLabel.setText("Electrónicos");
-        add(ElectronicsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 90, 30));
+        add(ElectronicsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 90, 30));
 
         addressLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         addressLabel.setText("Dirección");
-        add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 120, 30));
+        add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 120, 30));
 
         jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator1.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator1.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 180, 10));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 180, 10));
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator2.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator2.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 40, 10));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 40, 10));
 
         jSeparator3.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator3.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator3.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 180, 10));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 180, 10));
 
         cityForm.setBackground(new java.awt.Color(200, 200, 200));
         cityForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -175,12 +202,12 @@ public class Schedule extends javax.swing.JPanel {
                 cityFormActionPerformed(evt);
             }
         });
-        add(cityForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 180, 30));
+        add(cityForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 180, 30));
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator4.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator4.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 180, 10));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 180, 10));
 
         electronicsForm.setBackground(new java.awt.Color(200, 200, 200));
         electronicsForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -198,12 +225,12 @@ public class Schedule extends javax.swing.JPanel {
                 electronicsFormKeyTyped(evt);
             }
         });
-        add(electronicsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 40, 30));
+        add(electronicsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 40, 30));
 
         jSeparator5.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator5.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator5.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 40, 10));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 40, 10));
 
         toysForm.setBackground(new java.awt.Color(200, 200, 200));
         toysForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -221,7 +248,7 @@ public class Schedule extends javax.swing.JPanel {
                 toysFormKeyTyped(evt);
             }
         });
-        add(toysForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 40, 30));
+        add(toysForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 40, 30));
 
         instrumentsForm.setBackground(new java.awt.Color(200, 200, 200));
         instrumentsForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -239,7 +266,7 @@ public class Schedule extends javax.swing.JPanel {
                 instrumentsFormKeyTyped(evt);
             }
         });
-        add(instrumentsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 40, 30));
+        add(instrumentsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 40, 30));
 
         booksForm.setBackground(new java.awt.Color(200, 200, 200));
         booksForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -257,22 +284,22 @@ public class Schedule extends javax.swing.JPanel {
                 booksFormKeyTyped(evt);
             }
         });
-        add(booksForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 40, 30));
+        add(booksForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 40, 30));
 
         jSeparator6.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator6.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator6.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 40, 10));
+        add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 40, 10));
 
         jSeparator7.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator7.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator7.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 40, 10));
+        add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 40, 10));
 
         jSeparator8.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator8.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator8.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 40, 10));
+        add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 40, 10));
 
         furnisForm.setBackground(new java.awt.Color(200, 200, 200));
         furnisForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -290,12 +317,12 @@ public class Schedule extends javax.swing.JPanel {
                 furnisFormKeyTyped(evt);
             }
         });
-        add(furnisForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 40, 30));
+        add(furnisForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 40, 30));
 
         jSeparator9.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator9.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator9.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 40, 10));
+        add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 40, 10));
 
         toolsForm.setBackground(new java.awt.Color(200, 200, 200));
         toolsForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -313,40 +340,40 @@ public class Schedule extends javax.swing.JPanel {
                 toolsFormKeyTyped(evt);
             }
         });
-        add(toolsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 40, 30));
+        add(toolsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 40, 30));
 
         jSeparator11.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator11.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator11.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 40, 10));
+        add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 40, 10));
 
         DateLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         DateLabel.setText("Fecha");
-        add(DateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 120, 30));
+        add(DateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 120, 30));
 
         InstrumentsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         InstrumentsLabel.setText("Instrumentos");
-        add(InstrumentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 110, 30));
+        add(InstrumentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 110, 30));
 
         ToolsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         ToolsLabel.setText("Herramientas");
-        add(ToolsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 100, 30));
+        add(ToolsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 100, 30));
 
         ToysLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         ToysLabel.setText("Juguetes");
-        add(ToysLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 90, 30));
+        add(ToysLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 90, 30));
 
         ClothesLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         ClothesLabel.setText("Ropa/Calzado");
-        add(ClothesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 110, 30));
+        add(ClothesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 110, 30));
 
         BooksLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         BooksLabel.setText("Libros");
-        add(BooksLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 90, 30));
+        add(BooksLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 90, 30));
 
         FurnisLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         FurnisLabel.setText("Muebles");
-        add(FurnisLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 90, 30));
+        add(FurnisLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 90, 30));
 
         commentsForm.setBackground(new java.awt.Color(200, 200, 200));
         commentsForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -357,21 +384,21 @@ public class Schedule extends javax.swing.JPanel {
                 commentsFormActionPerformed(evt);
             }
         });
-        add(commentsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 180, 30));
+        add(commentsForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 180, 30));
 
         jSeparator10.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator10.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator10.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 180, 10));
+        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 180, 10));
 
         infoLabel.setFont(new java.awt.Font("Dongle", 1, 28)); // NOI18N
         infoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         infoLabel.setText("Información");
-        add(infoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 440, 30));
+        add(infoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 390, 30));
 
         PayLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         PayLabel.setText("Medio de pago");
-        add(PayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 120, 30));
+        add(PayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 120, 30));
 
         payForm.setBackground(new java.awt.Color(200, 200, 200));
         payForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
@@ -382,53 +409,26 @@ public class Schedule extends javax.swing.JPanel {
                 payFormActionPerformed(evt);
             }
         });
-        add(payForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 180, 30));
+        add(payForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 180, 30));
 
         jSeparator12.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator12.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator12.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 180, 10));
-
-        BtnSchedule.setBackground(new java.awt.Color(181, 245, 82));
-
-        txtBtnSchedule.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
-        txtBtnSchedule.setForeground(new java.awt.Color(51, 51, 51));
-        txtBtnSchedule.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtBtnSchedule.setText("Agendar cita");
-        txtBtnSchedule.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtBtnScheduleMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout BtnScheduleLayout = new javax.swing.GroupLayout(BtnSchedule);
-        BtnSchedule.setLayout(BtnScheduleLayout);
-        BtnScheduleLayout.setHorizontalGroup(
-            BtnScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtBtnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-        );
-        BtnScheduleLayout.setVerticalGroup(
-            BtnScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BtnScheduleLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtBtnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        add(BtnSchedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 160, 40));
+        add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 180, 10));
 
         jSeparator13.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator13.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator13.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 10, 370));
+        add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 10, 370));
 
         cityLabel11.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         cityLabel11.setText("Ciudad");
-        add(cityLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 120, 30));
+        add(cityLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, 30));
 
         quantityLabel1.setFont(new java.awt.Font("Dongle", 1, 28)); // NOI18N
         quantityLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantityLabel1.setText("Cantidades");
-        add(quantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 180, 30));
+        add(quantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 180, 30));
 
         MessagePanel.setBackground(new java.awt.Color(200, 200, 200));
 
@@ -463,16 +463,115 @@ public class Schedule extends javax.swing.JPanel {
                 dateFormActionPerformed(evt);
             }
         });
-        add(dateForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 180, 30));
+        add(dateForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 180, 30));
 
         jSeparator14.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator14.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator14.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 180, 10));
+        add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, 180, 10));
 
         CommentsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
         CommentsLabel.setText("Observaciones");
-        add(CommentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 120, 30));
+        add(CommentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 120, 30));
+
+        toolsCheck.setBackground(new java.awt.Color(204, 204, 204));
+        toolsCheck.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        toolsCheck.setBorder(null);
+        toolsCheck.setPreferredSize(new java.awt.Dimension(20, 20));
+        toolsCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toolsCheckActionPerformed(evt);
+            }
+        });
+        add(toolsCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 30, 30));
+
+        clothesCheck.setBackground(new java.awt.Color(204, 204, 204));
+        clothesCheck.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        clothesCheck.setBorder(null);
+        clothesCheck.setPreferredSize(new java.awt.Dimension(20, 20));
+        clothesCheck.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                clothesCheckStateChanged(evt);
+            }
+        });
+        clothesCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clothesCheckActionPerformed(evt);
+            }
+        });
+        add(clothesCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 30, 30));
+
+        electronicsCheck.setBackground(new java.awt.Color(204, 204, 204));
+        electronicsCheck.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        electronicsCheck.setBorder(null);
+        electronicsCheck.setPreferredSize(new java.awt.Dimension(20, 20));
+        electronicsCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                electronicsCheckActionPerformed(evt);
+            }
+        });
+        add(electronicsCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 30, 30));
+
+        toysCheck.setBackground(new java.awt.Color(204, 204, 204));
+        toysCheck.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        toysCheck.setBorder(null);
+        toysCheck.setPreferredSize(new java.awt.Dimension(20, 20));
+        toysCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toysCheckActionPerformed(evt);
+            }
+        });
+        add(toysCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 30, 30));
+
+        instrumentsCheck.setBackground(new java.awt.Color(204, 204, 204));
+        instrumentsCheck.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        instrumentsCheck.setBorder(null);
+        instrumentsCheck.setPreferredSize(new java.awt.Dimension(20, 20));
+        instrumentsCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                instrumentsCheckActionPerformed(evt);
+            }
+        });
+        add(instrumentsCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 30, 30));
+
+        booksCheck.setBackground(new java.awt.Color(204, 204, 204));
+        booksCheck.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        booksCheck.setBorder(null);
+        booksCheck.setPreferredSize(new java.awt.Dimension(20, 20));
+        booksCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                booksCheckActionPerformed(evt);
+            }
+        });
+        add(booksCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 30, 30));
+
+        furnisCheck.setBackground(new java.awt.Color(204, 204, 204));
+        furnisCheck.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        furnisCheck.setBorder(null);
+        furnisCheck.setPreferredSize(new java.awt.Dimension(20, 20));
+        furnisCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                furnisCheckActionPerformed(evt);
+            }
+        });
+        add(furnisCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 30, 30));
+
+        recycleIcon.setBackground(new java.awt.Color(204, 204, 204));
+        recycleIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        recycleIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/reciclar.png"))); // NOI18N
+        add(recycleIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, -1));
+
+        btnSchedule.setBackground(new java.awt.Color(181, 252, 82));
+        btnSchedule.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        btnSchedule.setForeground(new java.awt.Color(51, 51, 51));
+        btnSchedule.setText("Agendar");
+        btnSchedule.setBorder(null);
+        btnSchedule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnScheduleActionPerformed(evt);
+            }
+        });
+        add(btnSchedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 425, 120, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeTypeFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeTypeFormActionPerformed
@@ -579,24 +678,56 @@ public class Schedule extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_toolsFormKeyTyped
 
-    private void txtBtnScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBtnScheduleMouseClicked
+    private void dateFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFormActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_dateFormActionPerformed
+
+    private void toolsCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toolsCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toolsCheckActionPerformed
+
+    private void clothesCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clothesCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clothesCheckActionPerformed
+
+    private void electronicsCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_electronicsCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_electronicsCheckActionPerformed
+
+    private void toysCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toysCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toysCheckActionPerformed
+
+    private void instrumentsCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instrumentsCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_instrumentsCheckActionPerformed
+
+    private void booksCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booksCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_booksCheckActionPerformed
+
+    private void furnisCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_furnisCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_furnisCheckActionPerformed
+
+    private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
         boolean res = sendData();
         if (res) {
             JOptionPane.showMessageDialog(null, "Cita agendada correctamente");
         } else {
             JOptionPane.showMessageDialog(null, "No se pudo agendar la cita", "Error", ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_txtBtnScheduleMouseClicked
+        currentUser.setScore(totalArticles*10);
+        currentUser.UpdateScore();
+    }//GEN-LAST:event_btnScheduleActionPerformed
 
-    private void dateFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFormActionPerformed
+    private void clothesCheckStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_clothesCheckStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_dateFormActionPerformed
+    }//GEN-LAST:event_clothesCheckStateChanged
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BooksLabel;
-    private javax.swing.JPanel BtnSchedule;
     private javax.swing.JLabel ClothesLabel;
     private javax.swing.JLabel CommentsLabel;
     private javax.swing.JLabel DateLabel;
@@ -610,17 +741,23 @@ public class Schedule extends javax.swing.JPanel {
     private javax.swing.JLabel TxtMessage;
     private javax.swing.JTextField addressForm;
     private javax.swing.JLabel addressLabel;
+    private javax.swing.JCheckBox booksCheck;
     private javax.swing.JTextField booksForm;
+    private javax.swing.JButton btnSchedule;
     private javax.swing.JTextField cityForm;
     private javax.swing.JLabel cityLabel11;
+    private javax.swing.JCheckBox clothesCheck;
     private javax.swing.JTextField clothesForm;
     private javax.swing.JTextField commentsForm;
     private javax.swing.JTextField dateForm;
+    private javax.swing.JCheckBox electronicsCheck;
     private javax.swing.JTextField electronicsForm;
+    private javax.swing.JCheckBox furnisCheck;
     private javax.swing.JTextField furnisForm;
     private javax.swing.JTextField homeTypeForm;
     private javax.swing.JLabel homeTypeLabel;
     private javax.swing.JLabel infoLabel;
+    private javax.swing.JCheckBox instrumentsCheck;
     private javax.swing.JTextField instrumentsForm;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
@@ -638,9 +775,11 @@ public class Schedule extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField payForm;
     private javax.swing.JLabel quantityLabel1;
+    private javax.swing.JLabel recycleIcon;
+    private javax.swing.JCheckBox toolsCheck;
     private javax.swing.JTextField toolsForm;
+    private javax.swing.JCheckBox toysCheck;
     private javax.swing.JTextField toysForm;
-    private javax.swing.JLabel txtBtnSchedule;
     // End of variables declaration//GEN-END:variables
        
     }

@@ -11,7 +11,7 @@ public class User {
     public String username;
     public String password;
     public Date birthday;
-    public String score;
+    public int score;
 
     public int getId() {
         return id;
@@ -61,12 +61,12 @@ public class User {
         this.birthday = birthday;
     }
 
-    public String getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(String score) {
-        this.score = score;
+    public void setScore(int score) {
+        this.score += score;
     }
     
     public ResultSet getById() {
@@ -157,6 +157,20 @@ public class User {
         try {
             ConnectionDb conn = new ConnectionDb();
             String query = String.format("DELETE FROM users WHERE id=%d;", this.id);
+            conn.executeSQL(query);
+
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    
+    public boolean UpdateScore(){
+        try {
+            ConnectionDb conn = new ConnectionDb();
+            String query = String.format("UPDATE users SET score=%d WHERE id=%d;",
+                    this.score, this.id);
             conn.executeSQL(query);
 
             return true;

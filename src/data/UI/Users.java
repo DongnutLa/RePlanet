@@ -15,7 +15,7 @@ public class Users extends javax.swing.JPanel {
     public Users() {
         initComponents();
         
-        String[] titles = {"id", "Nombre", "Correo", "Usuario", "Fecha de nacimiento"};
+        String[] titles = {"id", "Nombre", "Correo", "Usuario", "Fecha de nacimiento", "Puntos"};
         model = new DefaultTableModel(null,titles);
         tableUsr.setModel(model);
         
@@ -257,8 +257,9 @@ public class Users extends javax.swing.JPanel {
                 String mail = usersList.getString("mail");
                 String username = usersList.getString("username");
                 String birthday = usersList.getString("birthday");
+                String score = usersList.getString("score");
                 
-                Object[] data = {id, name, mail, username, birthday};
+                Object[] data = {id, name, mail, username, birthday, score};
                 model.addRow(data);
             }
         } catch (Exception e) {

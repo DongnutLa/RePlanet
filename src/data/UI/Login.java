@@ -35,15 +35,20 @@ public class Login extends javax.swing.JFrame {
     public User CurrentUser() {
         User user = RecoveryDataGUI();
         ResultSet result = user.currentUser();
+        int score = 0;
         
         try {
             if (result.next()) {
                 int id = Integer.parseInt(result.getString("id"));
                 String name = result.getString("name");
                 String mail = result.getString("mail");
+                if (result.getString("score") != null) {
+                    score = Integer.parseInt(result.getString("score"));
+                }
                 user.setId(id);
                 user.setName(name);
                 user.setMail(mail);
+                user.setScore(score);
                 
                 currentUser = user;
             }
