@@ -2,6 +2,7 @@ package data.UI;
 
 import data.CollectionSchedule;
 import data.User;
+import java.awt.BorderLayout;
 import java.util.*;
 import java.sql.Date;
 import javax.swing.JOptionPane;
@@ -14,6 +15,15 @@ public class Schedule extends javax.swing.JPanel {
 
     public Schedule() {
         initComponents();
+        
+        Message message = new Message();
+        message.setSize(660, 50);
+        message.setLocation(0, 0);
+        
+        MessagePanel.removeAll();
+        MessagePanel.add(message, BorderLayout.CENTER);
+        MessagePanel.revalidate();
+        MessagePanel.repaint();
     }
 
     public boolean sendData(){
@@ -107,7 +117,6 @@ public class Schedule extends javax.swing.JPanel {
         cityLabel11 = new javax.swing.JLabel();
         quantityLabel1 = new javax.swing.JLabel();
         MessagePanel = new javax.swing.JPanel();
-        TxtMessage = new javax.swing.JLabel();
         dateForm = new javax.swing.JTextField();
         jSeparator14 = new javax.swing.JSeparator();
         CommentsLabel = new javax.swing.JLabel();
@@ -432,23 +441,15 @@ public class Schedule extends javax.swing.JPanel {
 
         MessagePanel.setBackground(new java.awt.Color(200, 200, 200));
 
-        TxtMessage.setBackground(new java.awt.Color(51, 102, 0));
-        TxtMessage.setFont(new java.awt.Font("Dongle Light", 1, 24)); // NOI18N
-        TxtMessage.setForeground(new java.awt.Color(51, 102, 0));
-        TxtMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TxtMessage.setText("\"Si supiera que el mundo se acaba mañana, yo, hoy todavía, plantaría un árbol\"");
-
         javax.swing.GroupLayout MessagePanelLayout = new javax.swing.GroupLayout(MessagePanel);
         MessagePanel.setLayout(MessagePanelLayout);
         MessagePanelLayout.setHorizontalGroup(
             MessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessagePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(TxtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 660, Short.MAX_VALUE)
         );
         MessagePanelLayout.setVerticalGroup(
             MessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TxtMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
         add(MessagePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 660, 50));
@@ -738,7 +739,6 @@ public class Schedule extends javax.swing.JPanel {
     private javax.swing.JLabel PayLabel;
     private javax.swing.JLabel ToolsLabel;
     private javax.swing.JLabel ToysLabel;
-    private javax.swing.JLabel TxtMessage;
     private javax.swing.JTextField addressForm;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JCheckBox booksCheck;
