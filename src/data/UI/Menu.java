@@ -2,7 +2,6 @@ package data.UI;
 
 import data.User;
 import java.awt.BorderLayout;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
