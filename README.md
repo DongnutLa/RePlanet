@@ -15,6 +15,7 @@ In order to get ready:
   - password (VARCHAR(45), Not Null)
   - birthday (date, Not Null)
   - score (INT, Not Null)
+  - is_admin (binary, Not Null)
 - Create a table named schedule with the following columns:
   - id (INT, Primary Key, Not Null, Auto Incremental)
   - userId (INT, Not Null)
