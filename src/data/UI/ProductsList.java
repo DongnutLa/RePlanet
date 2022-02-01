@@ -1,14 +1,19 @@
 package data.UI;
 
 import data.CollectionSchedule;
+import data.User;
 import java.sql.ResultSet;
 
 public class ProductsList extends javax.swing.JPanel {
 
     public int clothes, electronics, toys, instruments, books, furnis, tools = 0;
+    User currentUser = Login.currentUser;
     
     public ProductsList() {
         initComponents();
+        if (currentUser.getIs_admin() != 1){
+            title.setText("Productos que he entregado para recolección");
+        }
         
         getData();
     }
@@ -19,21 +24,24 @@ public class ProductsList extends javax.swing.JPanel {
         try {
             ResultSet schedule = schedules.getData();
             while (schedule.next()){
-                String clothesStr = schedule.getString("clothes");
-                String electronicsStr = schedule.getString("electronics");
-                String toysStr = schedule.getString("toys");
-                String instrumentsStr = schedule.getString("instruments");
-                String booksStr = schedule.getString("books");
-                String furnisStr = schedule.getString("furnis");
-                String toolsStr = schedule.getString("tools");
+                if (currentUser.getIs_admin() == 1){
+                    clothes += schedule.getInt("clothes");
+                    electronics += schedule.getInt("electronics");
+                    toys += schedule.getInt("toys");
+                    instruments += schedule.getInt("instruments");
+                    books += schedule.getInt("books");
+                    furnis += schedule.getInt("furnis");
+                    tools += schedule.getInt("tools");
+                } else if (currentUser.getId() == schedule.getInt("userId")){   
+                    clothes += schedule.getInt("clothes");
+                    electronics += schedule.getInt("electronics");
+                    toys += schedule.getInt("toys");
+                    instruments += schedule.getInt("instruments");
+                    books += schedule.getInt("books");
+                    furnis += schedule.getInt("furnis");
+                    tools += schedule.getInt("tools");
+                }
                 
-                clothes += Integer.parseInt(clothesStr);
-                electronics += Integer.parseInt(electronicsStr);
-                toys += Integer.parseInt(toysStr);
-                instruments += Integer.parseInt(instrumentsStr);
-                books += Integer.parseInt(booksStr);
-                furnis += Integer.parseInt(furnisStr);
-                tools += Integer.parseInt(toolsStr);
             }
             
             clothesTxt.setText(Integer.toString(clothes));
@@ -67,7 +75,7 @@ public class ProductsList extends javax.swing.JPanel {
         instrumentsTxt = new javax.swing.JLabel();
         booksTxt = new javax.swing.JLabel();
         furnisTxt = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -158,11 +166,11 @@ public class ProductsList extends javax.swing.JPanel {
         furnisTxt.setText("0");
         add(furnisTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 180, -1));
 
-        jLabel2.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Acá se muestra la cantidad de productos por categoría");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 570, -1));
+        title.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        title.setForeground(new java.awt.Color(51, 51, 51));
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Acá se muestra la cantidad de productos por categoría");
+        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 570, -1));
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 146, 430, 10));
@@ -209,7 +217,6 @@ public class ProductsList extends javax.swing.JPanel {
     private javax.swing.JLabel furnisTxt;
     private javax.swing.JLabel instrumentsTxt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -224,6 +231,7 @@ public class ProductsList extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JLabel title;
     private javax.swing.JLabel toolsTxt;
     private javax.swing.JLabel toysTxt;
     // End of variables declaration//GEN-END:variables

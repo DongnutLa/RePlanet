@@ -5,11 +5,11 @@ import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
-public class Menu extends javax.swing.JFrame {
+public class MenuUsr extends javax.swing.JFrame {
 
-    int xMouse, yMouse;
+    int xMouse, yMouse;    
     
-    public Menu() {
+    public MenuUsr() {
         initComponents();
         
         Principal principal = new Principal();
@@ -38,8 +38,6 @@ public class Menu extends javax.swing.JFrame {
         txtScheduleList = new javax.swing.JLabel();
         ProductListMenu = new javax.swing.JPanel();
         txtProductList = new javax.swing.JLabel();
-        UserListMenu = new javax.swing.JPanel();
-        txtUserList = new javax.swing.JLabel();
         LogoutMenu = new javax.swing.JPanel();
         SeparatorRePlanet = new javax.swing.JSeparator();
         RePlanet = new javax.swing.JLabel();
@@ -156,7 +154,7 @@ public class Menu extends javax.swing.JFrame {
         txtScheduleList.setForeground(new java.awt.Color(51, 51, 51));
         txtScheduleList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtScheduleList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/ListaCitas.png"))); // NOI18N
-        txtScheduleList.setText("Lista de citas");
+        txtScheduleList.setText("Mis citas");
         txtScheduleList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtScheduleList.setIconTextGap(16);
         txtScheduleList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,7 +184,7 @@ public class Menu extends javax.swing.JFrame {
         txtProductList.setForeground(new java.awt.Color(51, 51, 51));
         txtProductList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtProductList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/Productos.png"))); // NOI18N
-        txtProductList.setText("Lista de productos");
+        txtProductList.setText("Mis productos");
         txtProductList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtProductList.setIconTextGap(16);
         txtProductList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -209,37 +207,6 @@ public class Menu extends javax.swing.JFrame {
         );
 
         MenuBar.add(ProductListMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 220, 40));
-
-        UserListMenu.setBackground(new java.awt.Color(204, 204, 204));
-        UserListMenu.setOpaque(false);
-
-        txtUserList.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
-        txtUserList.setForeground(new java.awt.Color(51, 51, 51));
-        txtUserList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        txtUserList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/usuarios.png"))); // NOI18N
-        txtUserList.setText("Usuarios");
-        txtUserList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtUserList.setIconTextGap(16);
-        txtUserList.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtUserListMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout UserListMenuLayout = new javax.swing.GroupLayout(UserListMenu);
-        UserListMenu.setLayout(UserListMenuLayout);
-        UserListMenuLayout.setHorizontalGroup(
-            UserListMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserListMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtUserList, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-        );
-        UserListMenuLayout.setVerticalGroup(
-            UserListMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtUserList, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        MenuBar.add(UserListMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 220, 40));
 
         LogoutMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LogoutMenu.setOpaque(false);
@@ -369,14 +336,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_TopPanelMousePressed
 
     private void txtScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtScheduleMouseClicked
-        
+
     }//GEN-LAST:event_txtScheduleMouseClicked
 
     private void txtScheduleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtScheduleMousePressed
         Schedule schedule = new Schedule();
         schedule.setSize(680, 500);
         schedule.setLocation(0, 0);
-        
+
         content.removeAll();
         content.add(schedule, BorderLayout.CENTER);
         content.revalidate();
@@ -388,7 +355,7 @@ public class Menu extends javax.swing.JFrame {
         ScheduleList scheduleList = new ScheduleList();
         scheduleList.setSize(680, 500);
         scheduleList.setLocation(0, 0);
-        
+
         content.removeAll();
         content.add(scheduleList, BorderLayout.CENTER);
         content.revalidate();
@@ -396,24 +363,12 @@ public class Menu extends javax.swing.JFrame {
         txtTitle.setText("Lista de citas");
     }//GEN-LAST:event_txtScheduleListMouseClicked
 
-    private void txtUserListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserListMouseClicked
-        Users users = new Users();
-        users.setSize(680, 500);
-        users.setLocation(0, 0);
-        
-        content.removeAll();
-        content.add(users, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-        txtTitle.setText("Lista de usuarios");
-    }//GEN-LAST:event_txtUserListMouseClicked
-
     private void txtProductListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductListMouseClicked
         // TODO add your handling code here:
         ProductsList prdList = new ProductsList();
         prdList.setSize(680, 500);
         prdList.setLocation(0, 0);
-        
+
         content.removeAll();
         content.add(prdList, BorderLayout.CENTER);
         content.revalidate();
@@ -425,8 +380,8 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             JOptionPane.showMessageDialog(null, "Has cerrado sesión.\n¡Vuelve pronto!");
-            Menu.setVisible(false);
-            Menu.dispose();
+            MenuUsr.setVisible(false);
+            MenuUsr.dispose();
             Login.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "¡Hubo un error!", "Error", ERROR_MESSAGE);
@@ -434,6 +389,10 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LogoutMenuMouseClicked
 
+    public void setUserName(User user){
+        this.userName.setText(user.username);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -451,20 +410,20 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUsr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUsr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUsr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuUsr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Menu.setVisible(true);
+                new MenuUsr().setVisible(true);
             }
         });
     }
@@ -480,7 +439,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JSeparator SeparatorRePlanet1;
     private javax.swing.JPanel TitlePanel;
     private javax.swing.JPanel TopPanel;
-    private javax.swing.JPanel UserListMenu;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -491,12 +449,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel txtScheduleList;
     private javax.swing.JLabel txtSlogan;
     private javax.swing.JLabel txtTitle;
-    private javax.swing.JLabel txtUserList;
     private javax.swing.JLabel userName;
     // End of variables declaration//GEN-END:variables
-    public void setUserName(User user){
-        this.userName.setText(user.username);
-    }
     public static Login Login = new Login();
-    public static Menu Menu = new Menu();
+    public static MenuUsr MenuUsr = new MenuUsr();
 }

@@ -15,7 +15,7 @@ public class Users extends javax.swing.JPanel {
     public Users() {
         initComponents();
         
-        String[] titles = {"id", "Nombre", "Correo", "Usuario", "Fecha de nacimiento", "Puntos"};
+        String[] titles = {"id", "Nombre", "Correo", "Usuario", "Fecha de nacimiento", "Puntos", "Admin"};
         model = new DefaultTableModel(null,titles);
         tableUsr.setModel(model);
         
@@ -43,7 +43,7 @@ public class Users extends javax.swing.JPanel {
         idForm = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
-        idLabel = new javax.swing.JLabel();
+        adminLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableUsr = new javax.swing.JTable();
         mailForm = new javax.swing.JTextField();
@@ -51,6 +51,9 @@ public class Users extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        idLabel1 = new javax.swing.JLabel();
+        adminForm = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -150,7 +153,7 @@ public class Users extends javax.swing.JPanel {
                 idFormActionPerformed(evt);
             }
         });
-        add(idForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 180, 30));
+        add(idForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 80, 30));
 
         jSeparator8.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator8.setForeground(new java.awt.Color(181, 245, 82));
@@ -160,11 +163,11 @@ public class Users extends javax.swing.JPanel {
         jSeparator9.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator9.setForeground(new java.awt.Color(181, 245, 82));
         jSeparator9.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
-        add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 180, 10));
+        add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 10));
 
-        idLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
-        idLabel.setText("ID");
-        add(idLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 120, 30));
+        adminLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        adminLabel.setText("Admin");
+        add(adminLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 60, 30));
 
         tableUsr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -240,6 +243,26 @@ public class Users extends javax.swing.JPanel {
             }
         });
         add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 100, 40));
+
+        idLabel1.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        idLabel1.setText("ID");
+        add(idLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 40, 30));
+
+        adminForm.setBackground(new java.awt.Color(200, 200, 200));
+        adminForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        adminForm.setForeground(new java.awt.Color(51, 51, 51));
+        adminForm.setBorder(null);
+        adminForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminFormActionPerformed(evt);
+            }
+        });
+        add(adminForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 80, 30));
+
+        jSeparator10.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator10.setForeground(new java.awt.Color(181, 245, 82));
+        jSeparator10.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
+        add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 80, 10));
     }// </editor-fold>//GEN-END:initComponents
 
     public void showData() {
@@ -258,8 +281,11 @@ public class Users extends javax.swing.JPanel {
                 String username = usersList.getString("username");
                 String birthday = usersList.getString("birthday");
                 String score = usersList.getString("score");
+                int admin = usersList.getInt("is_admin");
+                boolean is_admin = false;
+                if (admin == 1) is_admin = true;
                 
-                Object[] data = {id, name, mail, username, birthday, score};
+                Object[] data = {id, name, mail, username, birthday, score, is_admin};
                 model.addRow(data);
             }
         } catch (Exception e) {
@@ -274,6 +300,7 @@ public class Users extends javax.swing.JPanel {
         mailForm.setText("");
         passwordForm.setText("");
         birthdayForm.setText("");
+        adminForm.setText("");
         
         btnCreate.setEnabled(true);
         btnEdit.setEnabled(false);
@@ -294,6 +321,13 @@ public class Users extends javax.swing.JPanel {
         user.setPassword(password);
         Date birthday = Date.valueOf(birthdayForm.getText());
         user.setBirthday(birthday);
+        int admin;
+        if (adminForm.getText().contains("true")) {
+            admin = 1;
+        } else {
+            admin = 0;
+        }
+        user.setIs_admin(admin);
         return user;
     }
     
@@ -365,6 +399,7 @@ public class Users extends javax.swing.JPanel {
             mailForm.setText( receptor.getModel().getValueAt(receptor.getSelectedRow(), 2).toString() );
             usernameForm.setText( receptor.getModel().getValueAt(receptor.getSelectedRow(), 3).toString() );
             birthdayForm.setText( receptor.getModel().getValueAt(receptor.getSelectedRow(), 4).toString() );
+            adminForm.setText( receptor.getModel().getValueAt(receptor.getSelectedRow(), 6).toString() );
             passwordForm.setEditable(false);
         }
         btnCreate.setEnabled(false);
@@ -377,8 +412,14 @@ public class Users extends javax.swing.JPanel {
         this.clean();
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void adminFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adminFormActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adminForm;
+    private javax.swing.JLabel adminLabel;
     private javax.swing.JTextField birthdayForm;
     private javax.swing.JLabel birthdayLabel;
     private javax.swing.JButton btnCancel;
@@ -386,8 +427,9 @@ public class Users extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JTextField idForm;
-    private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel idLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;

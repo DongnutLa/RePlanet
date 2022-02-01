@@ -31,16 +31,18 @@ public class Login extends javax.swing.JFrame {
         
         try {
             if (result.next()) {
-                int id = Integer.parseInt(result.getString("id"));
+                int id = result.getInt("id");
                 String name = result.getString("name");
                 String mail = result.getString("mail");
                 if (result.getString("score") != null) {
                     score = Integer.parseInt(result.getString("score"));
                 }
+                int is_admin = result.getInt("is_admin");
                 user.setId(id);
                 user.setName(name);
                 user.setMail(mail);
                 user.setScore(score);
+                user.setIs_admin(is_admin);
                 
                 currentUser = user;
             }
@@ -322,12 +324,21 @@ public class Login extends javax.swing.JFrame {
         try {
             if (result.next()) {
                 JOptionPane.showMessageDialog(null, "Gracias por iniciar sesión, "+user.getUsername()+"!");
-                Login.setVisible(false);
-                Menu.setVisible(true);
-                Menu.setUserName(currentUser);
+                if (user.is_admin == 1) {
+                    Login.setVisible(false);
+                    MenuAdm.setVisible(true);
+                    MenuAdm.setUserName(currentUser);
+                } else {
+                    Login.setVisible(false);
+                    MenuUsr.setVisible(true);
+                    MenuUsr.setUserName(currentUser);
+                }
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "¡Usuario o clave incorrectos!", "Error", ERROR_MESSAGE);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "¡Usuario o clave incorrectos!", "Error", ERROR_MESSAGE);
+            
             System.out.println(e);
         }
     }//GEN-LAST:event_txtEntrarMouseClicked
@@ -387,6 +398,8 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public static Login Login = new Login();
-    public static Menu Menu = new Menu();
+    public static MenuAdm MenuAdm = new MenuAdm();
+    public static MenuUsr MenuUsr = new MenuUsr();
+
 }
 

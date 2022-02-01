@@ -12,6 +12,15 @@ public class User {
     public String password;
     public Date birthday;
     public int score;
+    public int is_admin;
+
+    public int getIs_admin() {
+        return is_admin;
+    }
+
+    public void setIs_admin(int is_admin) {
+        this.is_admin = is_admin;
+    }
 
     public int getId() {
         return id;
@@ -142,8 +151,8 @@ public class User {
     public boolean UpdateUser() {
         try {
             ConnectionDb conn = new ConnectionDb();
-            String query = String.format("UPDATE users SET name='%s', mail='%s', username='%s', birthday='%s' WHERE id=%d;",
-                    this.name, this.mail, this.username, this.birthday, this.id);
+            String query = String.format("UPDATE users SET name='%s', mail='%s', username='%s', birthday='%s', is_admin=%d WHERE id=%d;",
+                    this.name, this.mail, this.username, this.birthday, this.is_admin, this.id);
             conn.executeSQL(query);
 
             return true;
