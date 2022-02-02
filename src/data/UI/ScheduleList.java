@@ -45,11 +45,12 @@ public class ScheduleList extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Table.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jScrollPane1.setViewportView(Table);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 640, 390));
 
-        Siglas.setFont(new java.awt.Font("Dongle Light", 0, 18)); // NOI18N
+        Siglas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Siglas.setText("R: Ropa | E: Electrónicos | J: Juguetes | I: Instrumentos | L: Libros | M: Muebles | H: Herramientas");
         add(Siglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 610, -1));
     }// </editor-fold>//GEN-END:initComponents

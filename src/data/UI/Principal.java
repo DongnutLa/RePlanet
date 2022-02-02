@@ -37,17 +37,17 @@ public class Principal extends javax.swing.JPanel {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/RP-med.png"))); // NOI18N
         add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 138, 680, 360));
 
-        Welcome.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        Welcome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Welcome.setForeground(new java.awt.Color(51, 51, 51));
         Welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Welcome.setText("Agenda una cita, recogeremos tus residuos y obtendrás puntos ;)");
-        add(Welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 680, -1));
+        add(Welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 680, -1));
 
-        Welcome1.setFont(new java.awt.Font("Dongle", 0, 36)); // NOI18N
+        Welcome1.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Welcome1.setForeground(new java.awt.Color(51, 51, 51));
         Welcome1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Welcome1.setText("¡Bienvenidos/as al centro de recolección de residuos RePlanet!");
-        add(Welcome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 20, 670, -1));
+        add(Welcome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 670, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

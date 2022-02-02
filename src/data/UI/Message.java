@@ -52,7 +52,7 @@ public class Message extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TxtMessage.setBackground(new java.awt.Color(51, 102, 0));
-        TxtMessage.setFont(new java.awt.Font("Dongle Light", 1, 24)); // NOI18N
+        TxtMessage.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         TxtMessage.setForeground(new java.awt.Color(51, 102, 0));
         TxtMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TxtMessage.setText("\"Si supiera que el mundo se acaba mañana, yo, hoy todavía, plantaría un árbol\"");

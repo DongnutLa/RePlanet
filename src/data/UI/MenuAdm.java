@@ -105,7 +105,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
         TopPanel.add(ClosePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 40, 40));
 
-        txtSlogan.setFont(new java.awt.Font("Dongle", 2, 18)); // NOI18N
+        txtSlogan.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         txtSlogan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSlogan.setText("Centro de recolección de residuos \\ RePlanet");
         TopPanel.add(txtSlogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 680, 40));
@@ -117,7 +117,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
         scheduleMenu.setOpaque(false);
 
-        txtSchedule.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        txtSchedule.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtSchedule.setForeground(new java.awt.Color(51, 51, 51));
         txtSchedule.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtSchedule.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/cita.png"))); // NOI18N
@@ -152,7 +152,7 @@ public class MenuAdm extends javax.swing.JFrame {
         ScheduleListMenu.setBackground(new java.awt.Color(204, 204, 204));
         ScheduleListMenu.setOpaque(false);
 
-        txtScheduleList.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        txtScheduleList.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtScheduleList.setForeground(new java.awt.Color(51, 51, 51));
         txtScheduleList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtScheduleList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/ListaCitas.png"))); // NOI18N
@@ -182,7 +182,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
         ProductListMenu.setOpaque(false);
 
-        txtProductList.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        txtProductList.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtProductList.setForeground(new java.awt.Color(51, 51, 51));
         txtProductList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtProductList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/Productos.png"))); // NOI18N
@@ -201,7 +201,7 @@ public class MenuAdm extends javax.swing.JFrame {
             ProductListMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductListMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtProductList, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                .addComponent(txtProductList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ProductListMenuLayout.setVerticalGroup(
             ProductListMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +213,7 @@ public class MenuAdm extends javax.swing.JFrame {
         UserListMenu.setBackground(new java.awt.Color(204, 204, 204));
         UserListMenu.setOpaque(false);
 
-        txtUserList.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        txtUserList.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtUserList.setForeground(new java.awt.Color(51, 51, 51));
         txtUserList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtUserList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/utils/usuarios.png"))); // NOI18N
@@ -241,7 +241,9 @@ public class MenuAdm extends javax.swing.JFrame {
 
         MenuBar.add(UserListMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 220, 40));
 
+        LogoutMenu.setForeground(new java.awt.Color(51, 51, 51));
         LogoutMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogoutMenu.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         LogoutMenu.setOpaque(false);
         LogoutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -266,7 +268,7 @@ public class MenuAdm extends javax.swing.JFrame {
         SeparatorRePlanet.setForeground(new java.awt.Color(51, 51, 51));
         MenuBar.add(SeparatorRePlanet, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 180, 10));
 
-        RePlanet.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
+        RePlanet.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         RePlanet.setForeground(new java.awt.Color(51, 51, 51));
         RePlanet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RePlanet.setText("RePlanet");
@@ -281,10 +283,11 @@ public class MenuAdm extends javax.swing.JFrame {
         jLabel1.setIconTextGap(16);
         MenuBar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 210, 40));
 
-        userName.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        userName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        userName.setForeground(new java.awt.Color(51, 51, 51));
         userName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userName.setText("User");
-        MenuBar.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 200, -1));
+        MenuBar.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 200, -1));
 
         SeparatorRePlanet1.setBackground(new java.awt.Color(181, 245, 82));
         SeparatorRePlanet1.setForeground(new java.awt.Color(51, 51, 51));
@@ -294,7 +297,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
         TitlePanel.setBackground(new java.awt.Color(196, 248, 118));
 
-        txtTitle.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
+        txtTitle.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         txtTitle.setForeground(new java.awt.Color(51, 51, 51));
         txtTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         txtTitle.setText("Menú Principal");

@@ -24,6 +24,10 @@ public class Schedule extends javax.swing.JPanel {
         MessagePanel.add(message, BorderLayout.CENTER);
         MessagePanel.revalidate();
         MessagePanel.repaint();
+        
+        JOptionPane.showMessageDialog(null, "Si seleccionas uno o más artículos que"
+                    + " puedan ser aprovechados,\nestos artículos serán donados a"
+                    + " comunidades vulnerables en el Chocó.");
     }
 
     public boolean sendData(){
@@ -136,7 +140,7 @@ public class Schedule extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeTypeForm.setBackground(new java.awt.Color(200, 200, 200));
-        homeTypeForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        homeTypeForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         homeTypeForm.setForeground(new java.awt.Color(51, 51, 51));
         homeTypeForm.setBorder(null);
         homeTypeForm.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +169,7 @@ public class Schedule extends javax.swing.JPanel {
         add(clothesForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 40, 30));
 
         addressForm.setBackground(new java.awt.Color(200, 200, 200));
-        addressForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        addressForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         addressForm.setForeground(new java.awt.Color(51, 51, 51));
         addressForm.setBorder(null);
         addressForm.addActionListener(new java.awt.event.ActionListener() {
@@ -175,15 +179,15 @@ public class Schedule extends javax.swing.JPanel {
         });
         add(addressForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 180, 30));
 
-        homeTypeLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        homeTypeLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         homeTypeLabel.setText("Tipo de casa");
         add(homeTypeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 120, 30));
 
-        ElectronicsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        ElectronicsLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         ElectronicsLabel.setText("Electrónicos");
         add(ElectronicsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 90, 30));
 
-        addressLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addressLabel.setText("Dirección");
         add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 120, 30));
 
@@ -203,7 +207,7 @@ public class Schedule extends javax.swing.JPanel {
         add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 180, 10));
 
         cityForm.setBackground(new java.awt.Color(200, 200, 200));
-        cityForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        cityForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cityForm.setForeground(new java.awt.Color(51, 51, 51));
         cityForm.setBorder(null);
         cityForm.addActionListener(new java.awt.event.ActionListener() {
@@ -356,36 +360,36 @@ public class Schedule extends javax.swing.JPanel {
         jSeparator11.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 40, 10));
 
-        DateLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        DateLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         DateLabel.setText("Fecha");
         add(DateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 120, 30));
 
-        InstrumentsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        InstrumentsLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         InstrumentsLabel.setText("Instrumentos");
         add(InstrumentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 110, 30));
 
-        ToolsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        ToolsLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         ToolsLabel.setText("Herramientas");
         add(ToolsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 100, 30));
 
-        ToysLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        ToysLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         ToysLabel.setText("Juguetes");
         add(ToysLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 90, 30));
 
-        ClothesLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        ClothesLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         ClothesLabel.setText("Ropa/Calzado");
         add(ClothesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 110, 30));
 
-        BooksLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        BooksLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BooksLabel.setText("Libros");
         add(BooksLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 90, 30));
 
-        FurnisLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        FurnisLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         FurnisLabel.setText("Muebles");
         add(FurnisLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 90, 30));
 
         commentsForm.setBackground(new java.awt.Color(200, 200, 200));
-        commentsForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        commentsForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         commentsForm.setForeground(new java.awt.Color(51, 51, 51));
         commentsForm.setBorder(null);
         commentsForm.addActionListener(new java.awt.event.ActionListener() {
@@ -400,17 +404,17 @@ public class Schedule extends javax.swing.JPanel {
         jSeparator10.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 180, 10));
 
-        infoLabel.setFont(new java.awt.Font("Dongle", 1, 28)); // NOI18N
+        infoLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         infoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         infoLabel.setText("Información");
         add(infoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 390, 30));
 
-        PayLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        PayLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         PayLabel.setText("Medio de pago");
         add(PayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 120, 30));
 
         payForm.setBackground(new java.awt.Color(200, 200, 200));
-        payForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        payForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         payForm.setForeground(new java.awt.Color(51, 51, 51));
         payForm.setBorder(null);
         payForm.addActionListener(new java.awt.event.ActionListener() {
@@ -430,11 +434,11 @@ public class Schedule extends javax.swing.JPanel {
         jSeparator13.setOrientation(javax.swing.SwingConstants.VERTICAL);
         add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 10, 370));
 
-        cityLabel11.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        cityLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         cityLabel11.setText("Ciudad");
         add(cityLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 120, 30));
 
-        quantityLabel1.setFont(new java.awt.Font("Dongle", 1, 28)); // NOI18N
+        quantityLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         quantityLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantityLabel1.setText("Cantidades");
         add(quantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 180, 30));
@@ -455,7 +459,7 @@ public class Schedule extends javax.swing.JPanel {
         add(MessagePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 660, 50));
 
         dateForm.setBackground(new java.awt.Color(200, 200, 200));
-        dateForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        dateForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         dateForm.setForeground(new java.awt.Color(51, 51, 51));
         dateForm.setText("2022-MM-dd");
         dateForm.setBorder(null);
@@ -471,7 +475,7 @@ public class Schedule extends javax.swing.JPanel {
         jSeparator14.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, 180, 10));
 
-        CommentsLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        CommentsLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         CommentsLabel.setText("Observaciones");
         add(CommentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 120, 30));
 
@@ -563,7 +567,7 @@ public class Schedule extends javax.swing.JPanel {
         add(recycleIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, -1));
 
         btnSchedule.setBackground(new java.awt.Color(181, 252, 82));
-        btnSchedule.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        btnSchedule.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnSchedule.setForeground(new java.awt.Color(51, 51, 51));
         btnSchedule.setText("Agendar");
         btnSchedule.setBorder(null);

@@ -58,12 +58,12 @@ public class Users extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        nameLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         nameLabel.setText("Nombre");
         add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, 30));
 
         nameForm.setBackground(new java.awt.Color(200, 200, 200));
-        nameForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        nameForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nameForm.setForeground(new java.awt.Color(51, 51, 51));
         nameForm.setBorder(null);
         nameForm.addActionListener(new java.awt.event.ActionListener() {
@@ -78,12 +78,12 @@ public class Users extends javax.swing.JPanel {
         jSeparator4.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 180, 10));
 
-        usernameLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        usernameLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         usernameLabel.setText("Usuario");
         add(usernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 120, 30));
 
         usernameForm.setBackground(new java.awt.Color(200, 200, 200));
-        usernameForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        usernameForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         usernameForm.setForeground(new java.awt.Color(51, 51, 51));
         usernameForm.setBorder(null);
         usernameForm.addActionListener(new java.awt.event.ActionListener() {
@@ -98,12 +98,12 @@ public class Users extends javax.swing.JPanel {
         jSeparator5.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 180, 10));
 
-        mailLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        mailLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         mailLabel.setText("Correo");
         add(mailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 120, 30));
 
         birthdayForm.setBackground(new java.awt.Color(200, 200, 200));
-        birthdayForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        birthdayForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         birthdayForm.setForeground(new java.awt.Color(51, 51, 51));
         birthdayForm.setText("yyyy-MM-dd");
         birthdayForm.setBorder(null);
@@ -119,12 +119,12 @@ public class Users extends javax.swing.JPanel {
         jSeparator6.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 180, 10));
 
-        passwordLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        passwordLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         passwordLabel.setText("Contraseña");
         add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 120, 30));
 
         passwordForm.setBackground(new java.awt.Color(200, 200, 200));
-        passwordForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        passwordForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         passwordForm.setForeground(new java.awt.Color(51, 51, 51));
         passwordForm.setBorder(null);
         passwordForm.addActionListener(new java.awt.event.ActionListener() {
@@ -139,13 +139,13 @@ public class Users extends javax.swing.JPanel {
         jSeparator7.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 180, 10));
 
-        birthdayLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        birthdayLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         birthdayLabel.setText("Fecha de nacimiento");
         add(birthdayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 160, 30));
 
         idForm.setEditable(false);
         idForm.setBackground(new java.awt.Color(200, 200, 200));
-        idForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        idForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         idForm.setForeground(new java.awt.Color(51, 51, 51));
         idForm.setBorder(null);
         idForm.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +165,7 @@ public class Users extends javax.swing.JPanel {
         jSeparator9.setFont(new java.awt.Font("Dongle", 1, 36)); // NOI18N
         add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 10));
 
-        adminLabel.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        adminLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         adminLabel.setText("Admin");
         add(adminLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 60, 30));
 
@@ -190,7 +190,7 @@ public class Users extends javax.swing.JPanel {
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 660, 270));
 
         mailForm.setBackground(new java.awt.Color(200, 200, 200));
-        mailForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        mailForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         mailForm.setForeground(new java.awt.Color(51, 51, 51));
         mailForm.setBorder(null);
         mailForm.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +201,7 @@ public class Users extends javax.swing.JPanel {
         add(mailForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 180, 30));
 
         btnDelete.setBackground(new java.awt.Color(181, 245, 82));
-        btnDelete.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        btnDelete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDelete.setText("Borrar");
         btnDelete.setBorder(null);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +212,7 @@ public class Users extends javax.swing.JPanel {
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 100, 40));
 
         btnCreate.setBackground(new java.awt.Color(181, 245, 82));
-        btnCreate.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        btnCreate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnCreate.setText("Crear");
         btnCreate.setBorder(null);
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -223,7 +223,7 @@ public class Users extends javax.swing.JPanel {
         add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 100, 40));
 
         btnEdit.setBackground(new java.awt.Color(181, 245, 82));
-        btnEdit.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        btnEdit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnEdit.setText("Editar");
         btnEdit.setBorder(null);
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -234,7 +234,7 @@ public class Users extends javax.swing.JPanel {
         add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 100, 40));
 
         btnCancel.setBackground(new java.awt.Color(181, 245, 82));
-        btnCancel.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        btnCancel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnCancel.setText("Cancelar");
         btnCancel.setBorder(null);
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -244,12 +244,12 @@ public class Users extends javax.swing.JPanel {
         });
         add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 100, 40));
 
-        idLabel1.setFont(new java.awt.Font("Dongle", 0, 24)); // NOI18N
+        idLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         idLabel1.setText("ID");
         add(idLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 40, 30));
 
         adminForm.setBackground(new java.awt.Color(200, 200, 200));
-        adminForm.setFont(new java.awt.Font("Dongle", 0, 20)); // NOI18N
+        adminForm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         adminForm.setForeground(new java.awt.Color(51, 51, 51));
         adminForm.setBorder(null);
         adminForm.addActionListener(new java.awt.event.ActionListener() {

@@ -142,24 +142,24 @@ public class Login extends javax.swing.JFrame {
         Background.setBackground(new java.awt.Color(181, 245, 82));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtLogin.setFont(new java.awt.Font("DialogInput", 1, 30)); // NOI18N
+        txtLogin.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
         txtLogin.setForeground(new java.awt.Color(51, 51, 51));
         txtLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtLogin.setText("INICIAR SESIÓN");
         Background.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 560, -1));
 
-        txtPassword.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(51, 51, 51));
         txtPassword.setText("CONTRASEÑA");
         Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
 
-        txtUser.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        txtUser.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtUser.setForeground(new java.awt.Color(51, 51, 51));
         txtUser.setText("USUARIO");
         Background.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
         formUser.setBackground(new java.awt.Color(181, 245, 82));
-        formUser.setFont(new java.awt.Font("Dongle Light", 0, 24)); // NOI18N
+        formUser.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         formUser.setForeground(new java.awt.Color(102, 102, 102));
         formUser.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         formUser.setText("Ingrese su usuario");
@@ -181,6 +181,7 @@ public class Login extends javax.swing.JFrame {
         Background.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 380, 10));
 
         formPassword.setBackground(new java.awt.Color(181, 245, 82));
+        formPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         formPassword.setForeground(new java.awt.Color(102, 102, 102));
         formPassword.setText("Password");
         formPassword.setBorder(null);
@@ -202,7 +203,8 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setBackground(new java.awt.Color(204, 204, 204));
 
         txtEntrar.setBackground(new java.awt.Color(204, 204, 204));
-        txtEntrar.setFont(new java.awt.Font("Dongle", 1, 24)); // NOI18N
+        txtEntrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtEntrar.setForeground(new java.awt.Color(51, 51, 51));
         txtEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtEntrar.setText("ENTRAR");
         txtEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
