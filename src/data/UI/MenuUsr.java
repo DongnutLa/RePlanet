@@ -42,8 +42,9 @@ public class MenuUsr extends javax.swing.JFrame {
         SeparatorRePlanet = new javax.swing.JSeparator();
         RePlanet = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        userName = new javax.swing.JLabel();
         SeparatorRePlanet1 = new javax.swing.JSeparator();
+        userName = new javax.swing.JLabel();
+        userScore = new javax.swing.JLabel();
         TitlePanel = new javax.swing.JPanel();
         txtTitle = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
@@ -248,14 +249,21 @@ public class MenuUsr extends javax.swing.JFrame {
         jLabel1.setIconTextGap(16);
         MenuBar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 210, 40));
 
-        userName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        userName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userName.setText("User");
-        MenuBar.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 200, -1));
-
         SeparatorRePlanet1.setBackground(new java.awt.Color(181, 245, 82));
         SeparatorRePlanet1.setForeground(new java.awt.Color(51, 51, 51));
         MenuBar.add(SeparatorRePlanet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 200, 10));
+
+        userName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        userName.setForeground(new java.awt.Color(51, 51, 51));
+        userName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userName.setText("User");
+        MenuBar.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 100, -1));
+
+        userScore.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        userScore.setForeground(new java.awt.Color(51, 51, 51));
+        userScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userScore.setText("30 Pts");
+        MenuBar.add(userScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 90, -1));
 
         jPanel1.add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 600));
 
@@ -378,19 +386,22 @@ public class MenuUsr extends javax.swing.JFrame {
 
     private void LogoutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMenuMouseClicked
         // TODO add your handling code here:
-        try {
-            JOptionPane.showMessageDialog(null, "Has cerrado sesión.\n¡Vuelve pronto!");
-            MenuUsr.setVisible(false);
-            MenuUsr.dispose();
-            Login.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "¡Hubo un error!", "Error", ERROR_MESSAGE);
-            System.out.println(e);
-        }
+        JOptionPane.showMessageDialog(null, "Has cerrado sesión.\n¡Vuelve pronto!");
+        System.exit(0);
+//        try {
+//            JOptionPane.showMessageDialog(null, "Has cerrado sesión.\n¡Vuelve pronto!");
+//            MenuUsr.setVisible(false);
+//            MenuUsr.dispose();
+//            Login.setVisible(true);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "¡Hubo un error!", "Error", ERROR_MESSAGE);
+//            System.out.println(e);
+//        }
     }//GEN-LAST:event_LogoutMenuMouseClicked
 
     public void setUserName(User user){
         this.userName.setText(user.username);
+        this.userScore.setText(String.valueOf(user.score)+" Pts");
     }
     
     /**
@@ -450,7 +461,9 @@ public class MenuUsr extends javax.swing.JFrame {
     private javax.swing.JLabel txtSlogan;
     private javax.swing.JLabel txtTitle;
     private javax.swing.JLabel userName;
+    private javax.swing.JLabel userScore;
     // End of variables declaration//GEN-END:variables
+
     public static Login Login = new Login();
     public static MenuUsr MenuUsr = new MenuUsr();
 }
